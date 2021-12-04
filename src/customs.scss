@@ -1,0 +1,7 @@
+$primary: #1f3e70;
+$secondary: #ee9344;
+
+h1 {
+	color: $secondary;
+}
+@import "./../node_modules/bootstrap/scss/bootstrap.scss";
