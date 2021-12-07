@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Prismic from "@prismicio/client";
 
 export default function Homepage() {
@@ -24,27 +25,18 @@ export default function Homepage() {
 			const response = await Client.query([Prismic.Predicates.at("document.tags", ["Featured"])]);
 			if (response) {
 				console.log(response.results);
-				setFeatured((prevFeatured) => {
-					return [
-						...prevFeatured,
-						{ title: response.results[0].data.title[0].text, category: response.results[0].data.category.id },
-					];
+				response.results.forEach((result) => {
+					setFeatured((prevFeatured) => {
+						return [
+							...prevFeatured,
+							{ id: result.id, title: result.data.title[0].text, teaser: result.data.teaser[0].text },
+						];
+					});
 				});
 			}
 		};
 		fetchFeatured();
 	}, []);
-
-	function getCategory(catID) {
-		const fetchCat = async () => {
-			const response = await Client.query([Prismic.Predicates.at("document.id", catID)]);
-			if (response) {
-				console.log(response.results[0].data.category[0].text);
-				return `"${response.results[0].data.category[0].text}"`;
-			}
-		};
-		fetchCat();
-	}
 
 	return (
 		<div className="container">
@@ -53,10 +45,15 @@ export default function Homepage() {
 			<div className="row">
 				{featured.map((f) => {
 					return (
-						<div className="col">
+						<div className="col-lg-3">
 							<div className="card">
-								<div className="card-title">{f.title}</div>
-								<div className="card-text">{getCategory(f.category)}</div>
+								<div className="card-body">
+									<div className="card-title">{f.title}</div>
+									<div className="card-text">{f.teaser}</div>
+									<Link to={`/samples/${f.id}`} className="btn btn-primary">
+										Read More
+									</Link>
+								</div>
 							</div>
 						</div>
 					);

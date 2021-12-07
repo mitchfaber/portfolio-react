@@ -11,6 +11,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Homepage />} />
 					<Route path="/samples" element={<Samples />} />
+					<Route path="/samples/:id" element={<Samples />} />
 				</Routes>
 			</Router>
 		</div>
