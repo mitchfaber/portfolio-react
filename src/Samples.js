@@ -10,17 +10,42 @@ export default function Samples() {
 
 	let { id } = useParams();
 	const [pageInfo, setPageInfo] = useState();
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchPageData = async () => {
+			setLoading(true);
 			const response = await Client.query([Prismic.Predicates.at("document.id", id)]);
 			if (response) {
-				console.log(response.results[0]);
+				console.log(response.results[0].data);
 				setPageInfo(response.results[0]);
+				setLoading(false);
 			}
 		};
 		fetchPageData();
 	}, []);
-
-	return <div className="container">{pageInfo.data.title[0].text}</div>;
+	if (loading) {
+		return (
+			<div class="d-flex justify-content-center">
+				<div class="spinner-border" role="status">
+					<span class="sr-only"></span>
+				</div>
+			</div>
+		);
+	} else {
+		return (
+			<div className="container">
+				<h1>{pageInfo.data.title[0].text}</h1>
+				<hr />
+				{pageInfo.data.article.map((a) => {
+					return (
+						<div>
+							{/* <img className="img" src=""/> */}
+							<p>{a.paragraph[0].text}</p>
+						</div>
+					);
+				})}
+			</div>
+		);
+	}
 }
