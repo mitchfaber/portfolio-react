@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Prismic from "@prismicio/client";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Homepage() {
 	const apiEndpoint = "https://portfolio-reactmf.prismic.io/api/v2";
@@ -45,7 +46,7 @@ export default function Homepage() {
 			<div className="row">
 				{featured.map((f) => {
 					return (
-						<div className="col-lg-3">
+						<div key={uuidv4()} className="col-lg-3">
 							<div className="card">
 								<div className="card-body">
 									<div className="card-title">{f.title}</div>

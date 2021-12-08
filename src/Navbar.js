@@ -9,7 +9,7 @@ export default function Navbar() {
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div className="container">
 				<Link to="/" className="navbar-brand">
-					Faber Pizza
+					Mitch Faber
 				</Link>
 				<button
 					className="navbar-toggler"

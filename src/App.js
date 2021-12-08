@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
-import Samples from "./Samples";
+import Samples from "./Sample";
 function App() {
 	return (
 		<div>
