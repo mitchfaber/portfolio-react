@@ -41,16 +41,21 @@ export default function Sample() {
 					{pageInfo.tags.map((t) => {
 						return (
 							<div className="col">
-								<p className="tag p-1">{t}</p>
+								<p className="tag p-2">{t}</p>
 							</div>
 						);
 					})}
 				</div>
 				<hr />
 				{pageInfo.data.article.map((a) => {
+					console.log(a);
 					return (
 						<div key={uuidv4()}>
-							{a.image.src !== undefined ? <img className="img-fluid" alt="section" src="" /> : ""}
+							{a.image.url !== undefined ? (
+								<img className="img-fluid border border-secondary rounded" alt="section" src={a.image.url} />
+							) : (
+								""
+							)}
 							{a.subtitle[0] !== undefined ? <h2>{a.subtitle[0].text}</h2> : ""}
 							{a.paragraph[0] !== undefined ? <p>{a.paragraph[0].text}</p> : ""}
 							{a.quote[0] !== undefined ? (
