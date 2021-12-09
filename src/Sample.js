@@ -18,7 +18,7 @@ export default function Sample() {
 			setLoading(true);
 			const response = await Client.query([Prismic.Predicates.at("document.id", id)]);
 			if (response) {
-				console.log(response.results[0].data);
+				console.log(response.results[0]);
 				setPageInfo(response.results[0]);
 				setLoading(false);
 			}
@@ -55,7 +55,7 @@ export default function Sample() {
 					);
 				})}
 				<div className="btn-toolbar">
-					{pageInfo.data.github !== undefined ? (
+					{pageInfo.data.github.url !== undefined ? (
 						<div className="btn-group">
 							<a target={pageInfo.data.github.target} className="btn btn-secondary" href={pageInfo.data.github.url}>
 								Github
@@ -65,7 +65,7 @@ export default function Sample() {
 						""
 					)}
 				</div>
-				{pageInfo.data.live !== undefined ? (
+				{pageInfo.data.live.url !== undefined ? (
 					<div className="btn-group mr-2">
 						<a target={pageInfo.data.live.target} className="btn btn-secondary" href={pageInfo.data.live.url}>
 							Live Site
