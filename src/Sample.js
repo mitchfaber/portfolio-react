@@ -37,6 +37,15 @@ export default function Sample() {
 		return (
 			<div className="container">
 				<h1>{pageInfo.data.title[0].text}</h1>
+				<div className="row">
+					{pageInfo.tags.map((t) => {
+						return (
+							<div className="col">
+								<p className="tag p-1">{t}</p>
+							</div>
+						);
+					})}
+				</div>
 				<hr />
 				{pageInfo.data.article.map((a) => {
 					return (
@@ -56,7 +65,7 @@ export default function Sample() {
 				})}
 				<div className="btn-toolbar">
 					{pageInfo.data.github.url !== undefined ? (
-						<div className="btn-group">
+						<div className="btn-group m-1">
 							<a target={pageInfo.data.github.target} className="btn btn-secondary" href={pageInfo.data.github.url}>
 								Github
 							</a>
@@ -64,16 +73,17 @@ export default function Sample() {
 					) : (
 						""
 					)}
+
+					{pageInfo.data.live.url !== undefined ? (
+						<div className="btn-group m-1">
+							<a target={pageInfo.data.live.target} className="btn btn-secondary" href={pageInfo.data.live.url}>
+								Live Site
+							</a>
+						</div>
+					) : (
+						""
+					)}
 				</div>
-				{pageInfo.data.live.url !== undefined ? (
-					<div className="btn-group mr-2">
-						<a target={pageInfo.data.live.target} className="btn btn-secondary" href={pageInfo.data.live.url}>
-							Live Site
-						</a>
-					</div>
-				) : (
-					""
-				)}
 			</div>
 		);
 	}

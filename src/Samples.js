@@ -23,6 +23,7 @@ export default function Samples() {
 		};
 		fetchPageData();
 	}, []);
+
 	if (loading) {
 		return (
 			<div className="d-flex justify-content-center">
@@ -40,11 +41,11 @@ export default function Samples() {
 							<div key={uuidv4()} className="col-lg-3">
 								<div className="card m-3">
 									<div className="card-body">
-										<div className="card-title">{s.data.title[0].text}</div>
+										<h3 className="card-title">{s.data.title[0].text}</h3>
 										<div className="card-text">{s.data.teaser[0].text}</div>
 										<div className="row">
 											{s.tags.map((t) => {
-												return <div className="col">{t}</div>;
+												return <div className="tag col">{t}</div>;
 											})}
 										</div>
 										<Link to={`/samples/${s.id}`} className="btn btn-primary">

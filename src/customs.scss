@@ -1,7 +1,15 @@
 $primary: #1f3e70;
-$secondary: #ee9344;
+$secondary: #21c06e;
 
-h1 {
+.tag {
+	border-radius: 2rem;
+	background-color: $secondary;
+	font-size: 0.75em;
+	margin: 0.5rem;
+}
+h1,
+h2,
+h3 {
 	color: $secondary;
 }
 @import "./../node_modules/bootstrap/scss/bootstrap.scss";

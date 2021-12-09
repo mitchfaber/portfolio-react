@@ -49,7 +49,7 @@ export default function Homepage() {
 						<div key={uuidv4()} className="col-lg-3">
 							<div className="card">
 								<div className="card-body">
-									<div className="card-title">{f.title}</div>
+									<h3 className="card-title">{f.title}</h3>
 									<div className="card-text">{f.teaser}</div>
 									<Link to={`/samples/${f.id}`} className="btn btn-primary">
 										Read More
