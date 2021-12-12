@@ -41,6 +41,15 @@ export default function Navbar() {
 								Samples
 							</Link>
 						</li>
+						<li className="nav-item">
+							<Link
+								id="experience-nav"
+								to="/experience"
+								className={activePage === "experience-nav" ? "nav-link active" : "nav-link"}
+								onClick={changePage}>
+								Experience
+							</Link>
+						</li>
 					</ul>
 				</div>
 			</div>

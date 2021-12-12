@@ -35,6 +35,8 @@ export default function Samples() {
 	} else {
 		return (
 			<div className="container">
+				<h1>Samples</h1>
+				<hr />
 				<div className="row">
 					{samples.map((s) => {
 						return (

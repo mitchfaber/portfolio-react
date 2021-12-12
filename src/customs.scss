@@ -7,6 +7,23 @@ $secondary: #21c06e;
 	font-size: 0.75em;
 	margin: 0.5rem;
 }
+.push {
+	height: 50px;
+}
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: $primary;
+	color: white;
+	text-align: center;
+}
+html,
+body {
+	min-height: 400px;
+	margin-bottom: 100px;
+}
 h1,
 h2,
 h3 {

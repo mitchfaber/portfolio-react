@@ -42,8 +42,10 @@ export default function Homepage() {
 	return (
 		<div className="container">
 			<h1>{title}</h1>
+			<hr />
 			<p>{paragraph}</p>
 			<div className="row">
+				<h3>Featured</h3>
 				{featured.map((f) => {
 					return (
 						<div key={uuidv4()} className="col-lg-3">
