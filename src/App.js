@@ -4,6 +4,8 @@ import Homepage from "./Homepage";
 import Sample from "./Sample";
 import Samples from "./Samples";
 import Experience from "./Experience";
+import Blogs from "./Blogs";
+import Blog from "./Blog";
 function App() {
 	return (
 		<div>
@@ -14,6 +16,8 @@ function App() {
 						<Route path="/" element={<Homepage />} />
 						<Route path="/samples" element={<Samples />} />
 						<Route path="/samples/:id" element={<Sample />} />
+						<Route path="/blogs" element={<Blogs />} />
+						<Route path="/blogs/:id" element={<Blog />} />
 						<Route path="/experience" element={<Experience />} />
 					</Routes>
 				</Router>
